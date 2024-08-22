@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     private float horizontal;
     private float vertical;
     public int force = 10;
+
+    public bool onIsland;
     
     public Rigidbody rb;
     void Update()
@@ -19,10 +21,17 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.back * Time.deltaTime * speed * horizontal);
         transform.Translate(Vector3.right * Time.deltaTime * speed * vertical);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && onIsland == true)
         {
             rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+            onIsland = false;
         }
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Island"))
+        {
+            onIsland = true;
+        }
+    }
 }
