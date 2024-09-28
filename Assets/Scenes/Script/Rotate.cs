@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class Rotate : MonoBehaviour
 {
 
-    private int rotation = 140;
+    private int rotation = 280;
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))

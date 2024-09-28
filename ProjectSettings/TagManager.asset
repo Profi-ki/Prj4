@@ -7,6 +7,8 @@ TagManager:
   - Island
   - Coin
   - Enemy
+  - Lava
+  - Portal
   layers:
   - Default
   - TransparentFX
